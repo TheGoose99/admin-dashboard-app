@@ -7,7 +7,6 @@ import Header from "../../components/Header";
 const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -18,7 +17,7 @@ const Invoices = () => {
     },
     {
       field: "phone",
-      headerName: "Phone",
+      headerName: "Phone Number",
       flex: 1,
     },
     {
@@ -45,7 +44,7 @@ const Invoices = () => {
 
   return (
     <Box m="20px">
-      <Header title="Invoices" subtitle="List of Invoices Balances"></Header>
+      <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -70,7 +69,7 @@ const Invoices = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
-          "& .MuiCheckbox-rot": {
+          "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
         }}

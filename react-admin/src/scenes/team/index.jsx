@@ -10,7 +10,6 @@ import Header from "../../components/Header";
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -28,7 +27,7 @@ const Team = () => {
     },
     {
       field: "phone",
-      headerName: "Phone",
+      headerName: "Phone Number",
       flex: 1,
     },
     {
@@ -37,7 +36,7 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "access",
+      field: "accessLevel",
       headerName: "Access Level",
       flex: 1,
       renderCell: ({ row: { access } }) => {
@@ -51,6 +50,8 @@ const Team = () => {
             backgroundColor={
               access === "admin"
                 ? colors.greenAccent[600]
+                : access === "manager"
+                ? colors.greenAccent[700]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
@@ -69,7 +70,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members"></Header>
+      <Header title="TEAM" subtitle="Managing the Team Members" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -94,9 +95,12 @@ const Team = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[200]} !important`,
+          },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
       </Box>
     </Box>
   );
